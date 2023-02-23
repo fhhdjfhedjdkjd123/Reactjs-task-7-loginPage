@@ -5,7 +5,7 @@ import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
 const emailReducer=(state,action)=>{
-  if(action.type === "USER_INPUT"){
+  if(action.type === "USER_EMAIL_INPUT"){
     return {value:action.val, isValid:action.val.includes("@")}
   }
   if(action.type === "INPUT_BLUR"){
@@ -62,7 +62,7 @@ const Login = (props) => {
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);
-    dispatchEmail({type:"USER_INPUT", val:event.target.value});
+    dispatchEmail({type:"USER_EMAIL_INPUT", val:event.target.value});
 
       setFormIsValid(
         event.target.value.includes('@') && passwordState.isValid > 6 && enteredCollegeName.trim().length>0
